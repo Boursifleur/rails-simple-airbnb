@@ -1,0 +1,23 @@
+<nav class= "navbar navbar-expand lg navbar-light bg-light">
+  <%= link_to "Add flat", new_flat_path %>
+</nav>
+
+<div class="container mt-3">
+  <div class="col-12">
+    <h1>All our Flats</h1>
+  </div>
+  <div class="row">
+    <% @flats.each do |flat| %>
+    <div class="col-4">
+      <h4> <%= flat.name %> </h4>
+      <p> <%= flat.address %> </p>
+      <p> <%= flat.number_of_guests%> </p>
+      <p> <%= flat.price_per_night %> </p>
+      <%= link_to "More info", flat_path(flat) %>
+      <%= link_to "Edit", edit_flat_path(flat) %>
+      <%= link_to "Remove", flat_path(flat) , method: :delete, data: { confirm: "Are you sure?"}  %>
+    </div>
+    <% end %>
+  </div>
+
+</div>
